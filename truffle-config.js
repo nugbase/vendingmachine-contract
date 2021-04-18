@@ -44,18 +44,11 @@ module.exports = {
       skipDryRun: true
     },
     mainnet: {
-      provider: function() { 
-        // Mainnet migrations fail because of unstable nonce when used
-        // with the Infura loadbalancer. This is MetaMask's solution
-        var wallet = new HDWalletProvider(mnemonic, node_url);
-        var nonceTracker = new NonceTrackerSubprovider()
-        wallet.engine._providers.unshift(nonceTracker)
-        nonceTracker.setEngine(wallet.engine)
-        return wallet
-      },
-      network_id: "1",
-      gas: 4000000, // 21,000 normal; 1,685,639 used by v1 Flower Contract
-      gasPrice: 20000000000 // really helps to have a 4x safelow fee
+      provider: () => new HDWalletProvider(mnemonic, node_url),
+      network_id: 1,
+      confirmations: 2,
+      gas: 660000, // 21,000 normal; 1,685,639 used by v1 Flower Contract
+      gasPrice: 140000000000 // 140 gwei
     }
   }
 };
