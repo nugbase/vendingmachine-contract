@@ -1,0 +1,39 @@
+{
+    "name": "vendingmachine-contract",
+    "private": true,
+    "version": "1.0.0",
+    "description": "Nugbase VendingMachine Standalone Contract",
+    "main": "truffle.js",
+    "directories": {
+        "test": "test"
+    },
+    "scripts": {
+        "compile": "truffle compile",
+        "migrate-ganache": "truffle migrate --network ganache",
+        "migrate-rinkeby": "truffle migrate --network rinkeby",
+        "migrate-mainnet": "truffle migrate --network mainnet",
+        "migrate-polygon": "truffle migrate --network polygon",
+        "test": "truffle test",
+        "test-vending": "truffle test ./test/vendingmachine/VendingMachine.test.js",
+        "start-geth-rinkeby": "./scripts/geth-light-sync.sh"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+ssh://git@github.com/nugbase/vendingmachine-contract.git"
+    },
+    "author": "Nugbase Syndicate",
+    "license": "MIT",
+    "bugs": {
+        "url": "https://github.com/nugbase/vendingmachine-contract/issues"
+    },
+    "homepage": "https://github.com/nugbase/vendingmachine-contract#readme",
+    "devDependencies": {
+        "chai": "^4.3.4",
+        "chai-bn": "^0.2.1",
+        "truffle": "^5.2.6"
+    },
+    "dependencies": {
+        "truffle-hdwallet-provider": "1.0.17",
+        "web3-provider-engine": "^14.1.0"
+    }
+}
